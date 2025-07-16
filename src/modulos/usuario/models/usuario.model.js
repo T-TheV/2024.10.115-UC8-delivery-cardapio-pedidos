@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize');
 const { sequelize } = require('../../../config/configDB')
 
+// Defini o modelo Usuario com validações específicas que considerei importantes
 const Usuario = sequelize.define(
     'Usuario',
     {
@@ -8,6 +9,7 @@ const Usuario = sequelize.define(
             type: DataTypes.STRING,
             allowNull: false
         },
+        // Criei um ID customizado para seguir padrão específico (1 letra + 4 números)
         id: {
             type: DataTypes.STRING,
             primaryKey: true,
@@ -21,7 +23,7 @@ const Usuario = sequelize.define(
         email: {
             type: DataTypes.STRING,
             allowNull: false,
-            unique: true,
+            unique: true, // Garanti que cada email seja único no sistema
             validate: {
                 isEmail: { msg: "Email Inválido"}
             }
@@ -29,6 +31,7 @@ const Usuario = sequelize.define(
         senha: {
             type: DataTypes.STRING,
             allowNull: false,
+            // Implementei validação robusta para senhas seguras
             validate: {
                 is: {
                     args: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/,
@@ -36,10 +39,11 @@ const Usuario = sequelize.define(
                 }
             }
         },
+        // Adicionei sistema de roles para controlar permissões
         role: {
             type: DataTypes.ENUM('cliente', 'admin'),
             allowNull: false,
-            defaultValue: 'cliente',
+            defaultValue: 'cliente', // Por padrão, novos usuários são clientes
             validate: {
                 isIn: {
                     args: [['cliente', 'admin']],
@@ -47,9 +51,9 @@ const Usuario = sequelize.define(
                 }
             }
         },
-
     },
     {
+        // Customizei os nomes das colunas para português
         tableName: 'usuario',
         createdAt: 'criado_em',
         updatedAt: 'atualizado_em'
