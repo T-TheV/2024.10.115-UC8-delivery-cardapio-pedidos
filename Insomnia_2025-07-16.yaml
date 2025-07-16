@@ -1,0 +1,541 @@
+type: collection.insomnia.rest/5.0
+name: Delivery
+meta:
+  id: wrk_046d4596213d47a89c3102121a6f20bd
+  created: 1752691297980
+  modified: 1752691297980
+  description: ""
+collection:
+  - name: usuarios
+    meta:
+      id: fld_6b973083a57149d185acc65b9afba0d3
+      created: 1752691325187
+      modified: 1752691325187
+      sortKey: -1752691325187
+      description: ""
+    children:
+      - url: http://localhost:3001/api/login
+        name: Login
+        meta:
+          id: req_6c0ad94f435f49b4bed4d64698f56220
+          created: 1752691401148
+          modified: 1752691616491
+          isPrivate: false
+          description: ""
+          sortKey: -1752691461727
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "email": "joao@teste.com",
+              "senha": "MinhaSenh@123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/logout
+        name: Logout
+        meta:
+          id: req_1585a8f08ead4124ad9a45579a969576
+          created: 1752691473745
+          modified: 1752691490443
+          isPrivate: false
+          description: ""
+          sortKey: -1752691461627
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/usuarios/cadastrar
+        name: Cadastrar
+        meta:
+          id: req_6d9eab3175294c4ab0b2810044b88800
+          created: 1752691517923
+          modified: 1752691557610
+          isPrivate: false
+          description: ""
+          sortKey: -1752691461827
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "nome": "João Silva",
+              "id": "A1234",
+              "email": "joao@teste.com",
+              "senha": "MinhaSenh@123",
+              "role": "cliente"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/usuarios/perfil
+        name: Perfil
+        meta:
+          id: req_a0ed061f56754171baff13781bedb9fb
+          created: 1752691582746
+          modified: 1752693185180
+          isPrivate: false
+          description: ""
+          sortKey: -1752691461527
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0MzIxIiwibm9tZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbjFAdGVzdGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUyNjkzMTU2LCJleHAiOjE3NTI2OTMyNzZ9.zK5CM2xRTkRscqogQ0-9E9Oz5X6kHKqiw92YsYBOJB0
+          disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/usuarios/cadastrar
+        name: Cadastrar Admin
+        meta:
+          id: req_f9ac463ff19d4b4abfc9ce19fb1f7eed
+          created: 1752692819214
+          modified: 1752693142757
+          isPrivate: false
+          description: ""
+          sortKey: -1752692819214
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "nome": "Admin",
+              "id": "A4321",
+              "email": "admin1@teste.com",
+              "senha": "MinhaSenh@123",
+              "role": "admin"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/login
+        name: Login Admin
+        meta:
+          id: req_3433a21d0ef844c097b015575d2a7284
+          created: 1752692908896
+          modified: 1752693138069
+          isPrivate: false
+          description: ""
+          sortKey: -1752692908896
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "email": "admin1@teste.com",
+              "senha": "MinhaSenh@123"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Pedidos
+    meta:
+      id: fld_25cce79da4f24f8ab5db34fb8a70bfea
+      created: 1752691330480
+      modified: 1752691330480
+      sortKey: -1752691330480
+      description: ""
+    children:
+      - url: http://localhost:3001/api/pedidos
+        name: Criar Pedido
+        meta:
+          id: req_43afdfc00eaa4487b90b6a50eac6303d
+          created: 1752692392238
+          modified: 1752693192459
+          isPrivate: false
+          description: ""
+          sortKey: -1752692392238
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "pratos": [
+                {
+                  "pratoId": 1,
+                  "quantidade": 2
+                },
+                {
+                  "pratoId": 3,
+                  "quantidade": 1
+                }
+              ]
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0MzIxIiwibm9tZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbjFAdGVzdGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUyNjkzMTU2LCJleHAiOjE3NTI2OTMyNzZ9.zK5CM2xRTkRscqogQ0-9E9Oz5X6kHKqiw92YsYBOJB0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/pedidos
+        name: Obter Pedidos
+        meta:
+          id: req_4acd398ab21a4b589e3a7ffcc666a0d1
+          created: 1752692456519
+          modified: 1752692654773
+          isPrivate: false
+          description: ""
+          sortKey: -1752692585069
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkExMjM0Iiwibm9tZSI6Ikpvw6NvIFNpbHZhIiwiZW1haWwiOiJqb2FvQHRlc3RlLmNvbSIsInJvbGUiOiJjbGllbnRlIiwiaWF0IjoxNzUyNjkxNjMzLCJleHAiOjE3NTI2OTE3NTN9.2oL1AGKHLSVlIOskm7mhlGsLSZSu613bURIo5IFJ2No
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/pedidos/1
+        name: Obter Pedido por ID
+        meta:
+          id: req_95c64cd5ec4645ad99659a193a9ead27
+          created: 1752692584969
+          modified: 1752692635504
+          isPrivate: false
+          description: ""
+          sortKey: -1752692584969
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkExMjM0Iiwibm9tZSI6Ikpvw6NvIFNpbHZhIiwiZW1haWwiOiJqb2FvQHRlc3RlLmNvbSIsInJvbGUiOiJjbGllbnRlIiwiaWF0IjoxNzUyNjkxNjMzLCJleHAiOjE3NTI2OTE3NTN9.2oL1AGKHLSVlIOskm7mhlGsLSZSu613bURIo5IFJ2No
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/pedidos/1/status
+        name: Editar status Pedido
+        meta:
+          id: req_26cf4d624a424f10b014593f3f127312
+          created: 1752692673231
+          modified: 1752692758136
+          isPrivate: false
+          description: ""
+          sortKey: -1752692585019
+        method: PATCH
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkExMjM0Iiwibm9tZSI6Ikpvw6NvIFNpbHZhIiwiZW1haWwiOiJqb2FvQHRlc3RlLmNvbSIsInJvbGUiOiJjbGllbnRlIiwiaWF0IjoxNzUyNjkxNjMzLCJleHAiOjE3NTI2OTE3NTN9.2oL1AGKHLSVlIOskm7mhlGsLSZSu613bURIo5IFJ2No
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/pedidos/1
+        name: New Request
+        meta:
+          id: req_14db86b8b6f14cba8ad1caa384cb6ae9
+          created: 1752692785462
+          modified: 1752693233164
+          isPrivate: false
+          description: ""
+          sortKey: -1752692785462
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0MzIxIiwibm9tZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbjFAdGVzdGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUyNjkzMTU2LCJleHAiOjE3NTI2OTMyNzZ9.zK5CM2xRTkRscqogQ0-9E9Oz5X6kHKqiw92YsYBOJB0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Pratos
+    meta:
+      id: fld_fe30e84c3944464a9ad85e5ed782c9d9
+      created: 1752691337569
+      modified: 1752691337569
+      sortKey: -1752691337569
+      description: ""
+    children:
+      - url: http://localhost:3001/api/cardapio
+        name: Obter Cardapio
+        meta:
+          id: req_a439e895eda44b2e90abe0272ee09b70
+          created: 1752691823791
+          modified: 1752691904805
+          isPrivate: false
+          description: ""
+          sortKey: -1752691904781
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/cardapio/1
+        name: Obter Prato por ID
+        meta:
+          id: req_05d6de0583cd4a0a8e4749207f79997d
+          created: 1752691893450
+          modified: 1752691929811
+          isPrivate: false
+          description: ""
+          sortKey: -1752691904681
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/cardapio
+        name: Criar Prato
+        meta:
+          id: req_7be11743773d46259408249e1cfc4e99
+          created: 1752691949174
+          modified: 1752693202637
+          isPrivate: false
+          description: ""
+          sortKey: -1752691904581
+        method: POST
+        body:
+          mimeType: application/json
+          text: >-
+            {
+              "nome": "Pizza Margherita",
+              "descricao": "Pizza tradicional com molho de tomate, mussarela e manjericão",
+              "preco": 35.90,
+              "categoria": "prato principal",
+              "tempo_preparo": 25,
+              "disponivel": true,
+              "ingredientes": "Massa, molho de tomate, mussarela, manjericão",
+              "imagem_url": "https://exemplo.com/pizza.jpg"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0MzIxIiwibm9tZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbjFAdGVzdGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUyNjkzMTU2LCJleHAiOjE3NTI2OTMyNzZ9.zK5CM2xRTkRscqogQ0-9E9Oz5X6kHKqiw92YsYBOJB0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/cardapio/1
+        name: Editar Prato
+        meta:
+          id: req_1abfcd2f1a174adcbdc4fec116f89d46
+          created: 1752692138095
+          modified: 1752692193779
+          isPrivate: false
+          description: ""
+          sortKey: -1752691904481
+        method: PUT
+        body:
+          mimeType: application/json
+          text: >-
+            {
+              "nome": "Pizza Margherita Premium",
+              "descricao": "Pizza tradicional com ingredientes premium",
+              "preco": 42.90,
+              "categoria": "prato principal",
+              "tempo_preparo": 30,
+              "disponivel": true,
+              "ingredientes": "Massa especial, molho de tomate, mussarela de búfala, manjericão fresco",
+              "imagem_url": "https://exemplo.com/pizza-premium.jpg"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkExMjM0Iiwibm9tZSI6Ikpvw6NvIFNpbHZhIiwiZW1haWwiOiJqb2FvQHRlc3RlLmNvbSIsInJvbGUiOiJjbGllbnRlIiwiaWF0IjoxNzUyNjkxNjMzLCJleHAiOjE3NTI2OTE3NTN9.2oL1AGKHLSVlIOskm7mhlGsLSZSu613bURIo5IFJ2No
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/cardapio/1
+        name: Deletar Prato
+        meta:
+          id: req_2a353211d84c4fe2a9d40dcf330823cf
+          created: 1752692204798
+          modified: 1752693244814
+          isPrivate: false
+          description: ""
+          sortKey: -1752691904381
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0MzIxIiwibm9tZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbjFAdGVzdGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUyNjkzMTU2LCJleHAiOjE3NTI2OTMyNzZ9.zK5CM2xRTkRscqogQ0-9E9Oz5X6kHKqiw92YsYBOJB0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3001/api/cardapio/1/disponibilidade
+        name: Editar Disponibilidade
+        meta:
+          id: req_f63fca3589474ae68ff4b265cf180513
+          created: 1752692278001
+          modified: 1752692442779
+          isPrivate: false
+          description: ""
+          sortKey: -1752691904431
+        method: PATCH
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "disponivel": false
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/11.2.0
+        authentication:
+          type: bearer
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkExMjM0Iiwibm9tZSI6Ikpvw6NvIFNpbHZhIiwiZW1haWwiOiJqb2FvQHRlc3RlLmNvbSIsInJvbGUiOiJjbGllbnRlIiwiaWF0IjoxNzUyNjkxNjMzLCJleHAiOjE3NTI2OTE3NTN9.2oL1AGKHLSVlIOskm7mhlGsLSZSu613bURIo5IFJ2No
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_38355f8b321b37074eb2ac55ed1c373f4863ba06
+    created: 1752691297986
+    modified: 1752693156477
+  cookies:
+    - key: refreshToken
+      value: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IkE0MzIxIiwibm9tZSI6IkFkbWluIiwiZW1haWwiOiJhZG1pbjFAdGVzdGUuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzUyNjkzMTU2LCJleHAiOjE3NTI3Nzk1NTZ9.sfxJO6TEZy8sQG3_8cuAsdDRM3E6czPWI6R7rUgnJHE
+      maxAge: 0
+      domain: localhost
+      path: /
+      secure: true
+      hostOnly: true
+      creation: 2025-07-16T18:44:39.405Z
+      lastAccessed: 2025-07-16T19:12:36.477Z
+      id: ac79afe4-1682-45ef-922b-25abc9abe0a6
+environments:
+  name: Base Environment
+  meta:
+    id: env_38355f8b321b37074eb2ac55ed1c373f4863ba06
+    created: 1752691297984
+    modified: 1752691297984
+    isPrivate: false
