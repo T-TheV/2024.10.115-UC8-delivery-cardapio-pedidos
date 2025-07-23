@@ -21,11 +21,12 @@ class AutorizacaoMiddleware {
             return res.status(401).json({ msg: 'Usuário não autenticado' })
         }
 
-        // Pego o ID do recurso que está sendo acessado
-        const recursoUserId = req.params.userId || req.body.usuarioId
+        // Pego o ID do recurso que está sendo acessado, da primeira forma por parâmetro de rota
+        // ou da segunda forma por corpo da requisição
+        const recursoUsuarioId = req.params.usuarioId || req.body.usuarioId
         
         // Admin pode acessar tudo, outros usuários só seus próprios dados
-        if (req.usuario.role !== 'admin' && req.usuario.id !== parseInt(recursoUserId)) {
+        if (req.usuario.role !== 'admin' && req.usuario.id !== parseInt(recursoUsuarioId)) {
             return res.status(403).json({ msg: 'Acesso negado. Você só pode acessar seus próprios dados.' })
         }
 
